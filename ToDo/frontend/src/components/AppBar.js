@@ -1,8 +1,10 @@
 import React from "react";
+import { View } from "react-native";
 import { AppBar, HStack, IconButton } from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
 const Appbar = () => (
+  <View >
   <AppBar
     title="To Do"
     leading={(props) => (
@@ -24,6 +26,7 @@ const Appbar = () => (
       </HStack>
     )}
   />
+  </View>
 );
 
 export default Appbar;
