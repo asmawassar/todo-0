@@ -1,8 +1,10 @@
 package com.backend.ToDo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.backend.ToDo.model.User;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
-    User findByUsername(String username);
+import com.backend.ToDo.model.user;
+
+@Repository
+public interface userRepository extends JpaRepository<user, Long> {
 }

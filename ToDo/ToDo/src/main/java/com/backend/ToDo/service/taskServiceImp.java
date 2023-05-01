@@ -43,7 +43,7 @@ public class taskServiceImp implements taskService {
     }
 
     @Override
-    public void deleteTask(Integer id) {
+    public void deleteTask(Long id) {
         Optional<task> optionalTask = taskRepo.findById(id);
         if (optionalTask.isPresent()) {
             taskRepo.delete(optionalTask.get());
@@ -53,7 +53,7 @@ public class taskServiceImp implements taskService {
     }
 
     @Override
-    public task getTaskById(Integer id) {
+    public task getTaskById(Long id) {
         Optional<task> optionalTask = taskRepo.findById(id);
         if (optionalTask.isPresent()) {
             return optionalTask.get();

@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id;
+    private Long Id;
     private String title;
     private String description;
     private Date due_date;
@@ -24,11 +24,11 @@ public class task {
         this.done = done;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return this.Id;
     }
 
-    public void setId(Integer Id) {
+    public void setId(Long Id) {
         this.Id = Id;
     }
 

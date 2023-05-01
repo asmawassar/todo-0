@@ -11,7 +11,7 @@ public interface taskService {
 
     public task updateTask(task task);
 
-    public void deleteTask(Integer id);
+    public void deleteTask(Long id);
 
-    public task getTaskById(Integer id);
+    public task getTaskById(Long id);
 }

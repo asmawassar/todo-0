@@ -1,11 +1,19 @@
 import React, { Component } from "react";
-import { View, TextInput, Button, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  TextInput,
+  Button,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import TaskService from "./TaskService";
 
 class TaskForm extends Component {
   state = {
     title: "",
     description: "",
+    date: "",
+    done: false,
   };
 
   handleTitleChange = (value) => {
@@ -15,18 +23,22 @@ class TaskForm extends Component {
   handleDescriptionChange = (value) => {
     this.setState({ description: value });
   };
+  handleDateChange = (value) => {
+    this.setState({ date: value });
+  };
 
   handleSubmit = () => {
     const task = {
       title: this.state.title,
       description: this.state.description,
+      date: this.state.date,
     };
 
     TaskService.addTask(task)
       .then((task) => console.log(`Task "${task.title}" added successfully.`))
       .catch((error) => console.error(error));
 
-    this.setState({ title: "", description: "" });
+    this.setState({ title: "", description: "", date: "" });
   };
 
   render() {
