@@ -3,11 +3,6 @@ package com.backend.ToDo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.backend.ToDo.service.taskService;
 import com.backend.ToDo.model.task;
@@ -31,17 +26,17 @@ public class taskController {
         return service.addTask(task);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/get/{id}")
     public task getTaskById(@PathVariable Long id) {
         return service.getTaskById(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public task updateTask(@RequestBody task task) {
         return service.updateTask(task);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("delete/{id}")
     public void deleteTask(@PathVariable Long id) {
         service.deleteTask(id);
     }

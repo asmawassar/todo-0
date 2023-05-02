@@ -27,6 +27,17 @@ public class user {
       this.username = username;
    }
 
+   @Override
+   public String toString() {
+      return password;
+   }
+
+   public user() {
+      this.email = "";
+      this.password = "";
+      this.username = "";
+   }
+
    public String getEmail() {
       return email;
    }

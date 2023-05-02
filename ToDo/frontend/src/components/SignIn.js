@@ -7,16 +7,20 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
+import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import UserService from "./UserService";
 
 const SignIn = () => {
+  const [Email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigation = useNavigation();
   const onSignUpPressed = () => {
     navigation.navigate("SignUp");
   };
 
   const onSignInPressed = () => {
-    navigation.navigate("HomeScreen");
+    UserService.handleSignIn(Email, password);
   };
 
   return (
@@ -43,10 +47,20 @@ const SignIn = () => {
       </Text>
 
       <View style={styles.container}>
-        <TextInput style={styles.input} placeholder="Username" />
+        <TextInput
+          style={styles.input}
+          onChangeText={setEmail}
+          value={Email}
+          placeholder="Email"
+        />
       </View>
       <View style={styles.container}>
-        <TextInput style={styles.input} placeholder="Password" />
+        <TextInput
+          style={styles.input}
+          onChangeText={setPassword}
+          value={password}
+          placeholder="Password"
+        />
       </View>
       <TouchableOpacity style={styles.continueButton} onPress={onSignInPressed}>
         <Text style={{ fontSize: 18, color: "white", fontWeight: "600" }}>

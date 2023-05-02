@@ -6,7 +6,6 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
-import UserService from "./UserService";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 const SignUp = () => {
@@ -19,11 +18,11 @@ const SignUp = () => {
   const onSignInPressed = () => {
     const data = {
       username: username,
-      Email: Email,
+      email: Email,
       password: password,
     };
     if (password == repeatPassword) {
-      fetch("http://localhost:8080/api/users/add", {
+      fetch("http://localhost:8080/api/users/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

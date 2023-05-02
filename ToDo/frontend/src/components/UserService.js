@@ -1,19 +1,31 @@
-import axios from "axios";
+import { useState } from "react";
 
-class UserService {
-  async handleSignup(email, username, password) {
-    axios
-      .post("http://127.0.0.1/:8080/api/users/register", {
-        username: username,
-        email: email,
-        password: password,
+function UserService() {
+  const handleSignIn = (email, password) => {
+    const data = {
+      email: email,
+      password: password,
+    };
+    fetch("http://localhost:8080/api/users/test", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        console.log(response.json());
       })
-      .then((res) => {
-        console.log(res);
+      .then((data) => {
+        var userid = JSON.parse(data);
+        console.log(userid);
       })
-      .catch((e) => {
-        console.log(`register error ${e}`);
+      .catch((error) => {
+        console.log(error);
       });
-  }
+  };
+  return {
+    handleSignIn,
+  };
 }
 export default new UserService();
